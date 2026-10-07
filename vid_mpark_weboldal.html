@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagicLand Vidámpark - Kaland és Szórakozás</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        /* Villogó / lüktető figyelemfelkeltő sáv */
+        @keyframes pulse-blink {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .blinking-banner {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            font-weight: 700;
+            padding: 12px;
+            text-align: center;
+            animation: pulse-blink 1.5s infinite;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+        /* Navbar stílus */
+        .navbar {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #ffffff !important;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            color: #ff4b2b !important;
+            font-size: 1.6rem;
+        }
+        /* Slideshow stílus */
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.85);
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        /* Kártyák egyedi megjelenése */
+        .attraction-card, .ticket-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .attraction-card:hover, .ticket-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .attraction-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+        /* Színes gombok */
+        .btn-magic {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .btn-magic:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+        }
+        section {
+            padding: 70px 0;
+        }
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3. Villogó / lüktető figyelemfelkeltő elem -->
+    <div class="blinking-banner">
+        <i class="fa-solid fa-fire me-2"></i> CSAK MA: 20% kedvezmény minden online megvásárolt jegyre a VIP csomagokhoz! <i class="fa-solid fa-fire ms-2"></i>
+    </div>
+
+    <!-- 1. Reszponzív Bootstrap menüsor -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-ferris-wheel me-2"></i>MagicLand</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#fooldal">Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#jotek">Játékok</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#jegyvasarlas">Jegyvásárlás</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#kapcsolat">Kapcsolat</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#jegyvasarlas" class="btn btn-magic btn-sm">Jegyvásárlás</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Slideshow (Carousel) -->
+    <section id="fooldal" class="p-0">
+        <div id="magicCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#magicCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#magicCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#magicCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://placehold.co/1200x500/2575fc/ffffff?text=Megga+Hullamvasut" class="d-block w-100" alt="Hullámvasút">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Éld át a szabadságot!</h2>
+                        <p>Próbáld ki az ország leggyorsabb hurkolt hullámvasútját!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://placehold.co/1200x500/6a11cb/ffffff?text=Csaladi+Kalandok" class="d-block w-100" alt="Családi Park">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Felejthetetlen élmények családoknak</h2>
+                        <p>Több mint 40 attrakció kicsiknek és nagyoknak.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://placehold.co/1200x500/ff4b2b/ffffff?text=Fenykaland+es+Show" class="d-block w-100" alt="Show műsorok">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Esti fények és varázslat</h2>
+                        <p>Lélegzetelállító showműsorok és tűzijáték minden este.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#magicCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#magicCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 4. Card (Kártyás) elrendezés a játékokhoz -->
+    <section id="jotek" class="bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Legnépszerűbb Játékaink</h2>
+                <p class="text-muted">Válogass az adrenalin pumpáló és a családi kalandok között!</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card attraction-card shadow-sm h-100">
+                        <img src="https://placehold.co/600x400/2575fc/ffffff?text=Thunder+Coaster" class="card-img-top" alt="Thunder Coaster">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Thunder Coaster</h5>
+                            <p class="card-text text-muted">Ahol a gravitáció megszűnik létezni! 360 fokos fordulatok és óriási sebesség.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="badge bg-danger">Adrenalin</span>
+                                <span class="fw-bold text-success">Ajánlott: 14+ év</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card attraction-card shadow-sm h-100">
+                        <img src="https://placehold.co/600x400/6a11cb/ffffff?text=Varázskörhinta" class="card-img-top" alt="Varázskörhinta">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Királyi Körhinta</h5>
+                            <p class="card-text text-muted">Klasszikus, mesebeli körhinta a legkisebbeknek és a nosztalgia kedvelőinek.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Családi</span>
+                                <span class="fw-bold text-success">Minden korosztály</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card attraction-card shadow-sm h-100">
+                        <img src="https://placehold.co/600x400/ff4b2b/ffffff?text=Vizi+Dzsungel" class="card-img-top" alt="Vízi Dzsungel">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Vízi Dzsungel Folyó</h5>
+                            <p class="card-text text-muted">Izgalmas vadvízi túra gumicsónakban, garantáltan vizes és vidám pillanatokkal!</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning text-dark">Vizes élmény</span>
+                                <span class="fw-bold text-success">Ajánlott: 8+ év</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Dinamikus JSON jegyvásárlási szekció -->
+    <section id="jegyvasarlas">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Válaszd ki a jegyed</h2>
+                <p class="text-muted">Biztosítsd be a helyed online, gyorsan és egyszerűen!</p>
+            </div>
+            <div class="row g-4" id="ticket-container">
+                <!-- JSON adatból JavaScript generálja ki -->
+            </div>
+
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4 shadow-sm border-0 rounded-4">
+                        <h4 class="fw-bold mb-3 text-center">Kosár és Összegzés</h4>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span id="selected-summary" class="fs-5 text-muted">Nincs kiválasztott jegy.</span>
+                            <span id="total-price" class="fs-4 fw-bold text-success">0 Ft</span>
+                        </div>
+                        <form id="purchase-form" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Teljes Név</label>
+                                    <input type="text" class="form-control" id="buyer-name" required placeholder="Pl. Kovács Anna">
+                                    <div class="invalid-feedback">Kérjük add meg a neved.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">E-mail cím</label>
+                                    <input type="email" class="form-control" id="buyer-email" required placeholder="pelda@email.hu">
+                                    <div class="invalid-feedback">Kérjük adj meg egy érvényes e-mail címet.</div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-magic btn-lg w-100">Megrendelés és Fizetés</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. & 8. Kapcsolat űrlap és Google Térkép szimuláció -->
+    <section id="kapcsolat" class="bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Lépj velünk kapcsolatba</h2>
+                <p class="text-muted">Kérdésed van a nyitvatartásról vagy jegyekről? Írj nekünk!</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label class="form-label">Név</label>
+                            <input type="text" class="form-control" required placeholder="Az Ön neve">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-mail cím</label>
+                            <input type="email" class="form-control" required placeholder="az@email.cime">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Üzenet</label>
+                            <textarea class="form-control" rows="4" required placeholder="Írd ide az üzeneted..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-magic">Üzenet küldése</button>
+                        <div id="contact-success" class="alert alert-success mt-3 d-none" role="alert">
+                            Köszönjük üzenetét! Hamarosan válaszolunk.
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="h-100 rounded-4 overflow-hidden shadow-sm" style="min-height: 350px;">
+                        <!-- Google Térkép iframe szimuláció -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.5516765798485!2d18.9416!3d46.9631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDU3JzQ3LjIiTiAxOMKwNTYnMjkuOCJF!5e0!3m2!1shu!2shu!4v1620000000000!5m2!1shu!2shu" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lábléc -->
+    <footer>
+        <div class="container text-center">
+            <h3 class="fw-bold text-white mb-3"><i class="fa-solid fa-ferris-wheel me-2 text-danger"></i>MagicLand Vidámpark</h3>
+            <p class="text-white-50">Minden jog fenntartva &copy; 2026 | Kalandok városa</p>
+            <div class="social-icons fs-4 mt-3">
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 6. Sikeres vásárlás Pop-up (Bootstrap Modal) -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 p-4 text-center">
+                <div class="modal-body">
+                    <div class="display-1 text-success mb-3">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-2">Sikeres Vásárlás!</h3>
+                    <p class="text-muted mb-4">Köszönjük a rendelésed, a jegyeket elküldtük a megadott e-mail címre.</p>
+                    <div id="modal-receipt-details" class="bg-light p-3 rounded-3 text-start mb-4">
+                        <!-- Itt jelenik meg a vásárlás részlete -->
+                    </div>
+                    <button type="button" class="btn btn-magic w-100" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // JSON adatok a jegyekről (igény szerint dinamikusan kezelve)
+        const ticketsData = [
+            {
+                id: "gyerek",
+                title: "Gyermek Jegy (3-12 év)",
+                price: 4500,
+                desc: "Korlátlan belépés a családi játékokra és körhintákra.",
+                icon: "fa-child-reaching"
+            },
+            {
+                id: "felnott",
+                title: "Felnőtt Jegy",
+                price: 7500,
+                desc: "Teljes körű belépés az összes attrakcióhoz és hullámvasúthoz.",
+                icon: "fa-user"
+            },
+            {
+                id: "vip",
+                title: "VIP Arany Jegy",
+                price: 12500,
+                desc: "Soron kívüli (Fast-Track) belépés minden játékhoz + ajándék menü.",
+                icon: "fa-crown"
+            }
+        ];
+
+        // Jegyek kirajzolása JSON-ból
+        const ticketContainer = document.getElementById('ticket-container');
+        
+        function renderTickets() {
+            ticketContainer.innerHTML = "";
+            ticketsData.forEach(ticket => {
+                const col = document.createElement('div');
+                col.className = "col-md-4";
+                col.innerHTML = `
+                    <div class="card ticket-card shadow-sm h-100 p-3">
+                        <div class="card-body d-flex flex-column text-center">
+                            <div class="display-4 text-primary mb-3"><i class="fa-solid ${ticket.icon}"></i></div>
+                            <h4 class="card-title fw-bold">${ticket.title}</h4>
+                            <p class="card-text text-muted small">${ticket.desc}</p>
+                            <div class="fs-4 fw-bold text-success my-3">${ticket.price.toLocaleString()} Ft</div>
+                            <div class="mt-auto">
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${ticket.id}', -1)">-</button>
+                                    <input type="number" id="qty-${ticket.id}" class="form-control text-center" value="0" min="0" max="10" onchange="updateCart()">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${ticket.id}', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                ticketContainer.appendChild(col);
+            });
+        }
+
+        function changeQuantity(id, delta) {
+            const input = document.getElementById(`qty-${id}`);
+            let val = parseInt(input.value) + delta;
+            if (val < 0) val = 0;
+            if (val > 10) val = 10;
+            input.value = val;
+            updateCart();
+        }
+
+        function updateCart() {
+            let total = 0;
+            let summaryText = [];
+
+            ticketsData.forEach(ticket => {
+                const qty = parseInt(document.getElementById(`qty-${ticket.id}`).value) || 0;
+                if (qty > 0) {
+                    total += qty * ticket.price;
+                    summaryText.push(`${qty} db ${ticket.title}`);
+                }
+            });
+
+            document.getElementById('total-price').innerText = total.toLocaleString() + " Ft";
+            document.getElementById('selected-summary').innerText = summaryText.length > 0 ? summaryText.join(", ") : "Nincs kiválasztott jegy.";
+        }
+
+        // Vásárlás beküldése és Pop-up kezelése
+        document.getElementById('purchase-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('buyer-name').value;
+            const email = document.getElementById('buyer-email').value;
+            let total = 0;
+            let detailsHtml = `<strong>Név:</strong> ${name}<br><strong>E-mail:</strong> ${email}<hr><strong>Megrendelt tételek:</strong><br>`;
+            
+            let hasItems = false;
+            ticketsData.forEach(ticket => {
+                const qty = parseInt(document.getElementById(`qty-${ticket.id}`).value) || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    total += qty * ticket.price;
+                    detailsHtml += `- ${qty} db ${ticket.title} (${(qty * ticket.price).toLocaleString()} Ft)<br>`;
+                }
+            });
+
+            if (!hasItems) {
+                alert("Kérjük válassz ki legalább egy jegyet a vásárláshoz!");
+                return;
+            }
+
+            if(!name || !email) {
+                this.classList.add('was-validated');
+                return;
+            }
+
+            detailsHtml += `<hr><strong>Végösszeg: <span class="text-success">${total.toLocaleString()} Ft</span></strong>`;
+            document.getElementById('modal-receipt-details').innerHTML = detailsHtml;
+
+            // Bootstrap Modal megjelenítése
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        });
+
+        // Kapcsolat űrlap kezelése
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('contact-success').classList.remove('d-none');
+            this.reset();
+        });
+
+        // Inicializálás betöltéskor
+        window.onload = function() {
+            renderTickets();
+        };
+    </script>
+</body>
+</html>
